@@ -1,43 +1,64 @@
 # Push to GitHub - Final Steps
 
-Your project is ready! Follow these steps to back it up on GitHub:
+Your project is ready! Use **Option A** (GitHub CLI) — it's the easiest.
 
-## Step 1: Create the repository on GitHub
+---
 
-1. Go to [github.com/new](https://github.com/new)
-2. **Repository name:** `notime-landing-page` (or any name you prefer)
-3. **Description:** (optional) "Notime band landing page"
-4. Choose **Public**
-5. **Do NOT** check "Add a README" — your project already has files
-6. Click **Create repository**
+## Option A: GitHub CLI (Recommended)
 
-## Step 2: Connect and push
+**Do this in Terminal** (not inside Cursor — gh needs to run interactively):
 
-After creating the repo, GitHub will show you commands. Or run these in Terminal:
+### Step 1: Log in to GitHub
+
+```bash
+gh auth login
+```
+
+- Choose: **GitHub.com**
+- Choose: **HTTPS**
+- Choose: **Login with a web browser**
+- Copy the one-time code, press Enter
+- In the browser, paste the code and authorize
+
+### Step 2: Create repo and push
 
 ```bash
 cd "/Users/kurtlau/Desktop/notime landing page"
+./push-to-github.sh
+```
 
-# Add GitHub as remote (replace YOUR_USERNAME with your GitHub username)
+Or run the command directly:
+
+```bash
+cd "/Users/kurtlau/Desktop/notime landing page"
+gh repo create notime-landing-page --public --source=. --remote=origin --push
+```
+
+Done! Your repo will be at `https://github.com/YOUR_USERNAME/notime-landing-page`
+
+---
+
+## Option B: Manual (no CLI)
+
+### Step 1: Create the repository on GitHub
+
+1. Go to [github.com/new](https://github.com/new)
+2. **Repository name:** `notime-landing-page`
+3. Choose **Public**
+4. **Do NOT** check "Add a README"
+5. Click **Create repository**
+
+### Step 2: Connect and push
+
+```bash
+cd "/Users/kurtlau/Desktop/notime landing page"
 git remote add origin https://github.com/YOUR_USERNAME/notime-landing-page.git
-
-# Push your code
 git push -u origin main
 ```
 
-## Step 3: Authenticate
+### Step 3: Authenticate
 
-When you push, GitHub may ask you to sign in:
-- **Option A:** Use a Personal Access Token instead of password
-  - Go to GitHub → Settings → Developer settings → Personal access tokens
-  - Generate a new token with `repo` scope
-  - Use the token as your password when prompted
-
-- **Option B:** If you have SSH set up, use the SSH URL instead:
-  ```bash
-  git remote set-url origin git@github.com:YOUR_USERNAME/notime-landing-page.git
-  git push -u origin main
-  ```
+Use a [Personal Access Token](https://github.com/settings/tokens) as your password when prompted.
 
 ---
 
