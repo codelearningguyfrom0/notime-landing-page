@@ -366,6 +366,60 @@ a:hover {
   }
 }
 
+/* ===== Corporate Clients ===== */
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: var(--color-border);
+}
+
+.client-item {
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  transition: background var(--transition);
+}
+
+.client-item:hover {
+  background: var(--color-bg-alt);
+}
+
+.client-item img {
+  max-width: 120px;
+  max-height: 48px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.5);
+  transition: filter var(--transition);
+}
+
+.client-item:hover img {
+  filter: grayscale(0%) opacity(1);
+}
+
+@media (max-width: 992px) {
+  .clients-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .client-item {
+    padding: 1.5rem 1rem;
+  }
+  .client-item img {
+    max-width: 100px;
+    max-height: 40px;
+  }
+}
+
 /* ===== Portfolio ===== */
 .portfolio-filters {
   display: flex;
